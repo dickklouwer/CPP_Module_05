@@ -6,7 +6,7 @@
 /*   By: tklouwer <tklouwer@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/28 10:58:31 by tklouwer      #+#    #+#                 */
-/*   Updated: 2023/09/28 11:45:20 by tklouwer      ########   odam.nl         */
+/*   Updated: 2023/10/03 14:17:48 by tklouwer      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include <iostream>
+#include <fstream>
 
 /* 
     The assignment operator is declared private because the class has constant 
@@ -24,12 +26,15 @@
 class ShrubberyCreationForm : public AForm {
     private:
         const std::string   _target;
+
         ShrubberyCreationForm& operator=( const ShrubberyCreationForm& other );
         ShrubberyCreationForm( const ShrubberyCreationForm& other );
 
     public:
-        ShrubberyCreationForm( std::string& target );
-        ~ShrubberyCreationForm(); 
+        ShrubberyCreationForm( const std::string& target );
+        ~ShrubberyCreationForm();
+
+        void    execute ( const Bureaucrat& B ) const;
 };
 
 

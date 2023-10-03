@@ -6,22 +6,24 @@
 /*   By: tklouwer <tklouwer@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/26 10:24:48 by tklouwer      #+#    #+#                 */
-/*   Updated: 2023/09/27 09:18:13 by tklouwer      ########   odam.nl         */
+/*   Updated: 2023/10/03 14:24:35 by tklouwer      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Form.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
 
 int     main() 
 {
     try
     {
         Bureaucrat  bureaucrat("Dick", 11);
-        Form        form("firstForm", 10, 10);
+        ShrubberyCreationForm form1("Shrubbery");
+        
         std::cout << bureaucrat << std::endl;
-        std::cout << form << std::endl;
+        // std::cout << form << std::endl;
 
-        form.beSigned(bureaucrat);
+        // bureaucrat.
     }
     catch(const Form::GradeTooHighException& e)
     {

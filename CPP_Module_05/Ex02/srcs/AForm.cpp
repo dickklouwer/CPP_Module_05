@@ -64,15 +64,6 @@ int         AForm::getExecGrade() const
     return (_execGrade);
 }
 
-const char *AForm::GradeTooHighException::what(void) const throw()
-{
-    return "Grade is too high !";
-}
-
-const char *AForm::GradeTooLowException::what(void) const throw()
-{
-    return "Grade is too low !";
-}
 
 std::ostream& operator<<(std::ostream &out, const AForm &f)
 {
@@ -94,4 +85,18 @@ void    AForm::signForm(Bureaucrat& b)
         std::cout << b.getName() << " signed " << this->getName() << std::endl ;
     else
         std::cout << b.getName() << " couldn't sign " << this->getName() << "because the Forms grade is too high." << std::endl ;
+}
+const char *AForm::GradeTooHighException::what(void) const throw()
+{
+    return "Grade is too high !";
+}
+
+const char *AForm::GradeTooLowException::what(void) const throw()
+{
+    return "Grade is too low !";
+}
+
+const char *AForm::FormNotSigned::what(void) const throw()
+{
+    return "Form is not signed !";
 }
