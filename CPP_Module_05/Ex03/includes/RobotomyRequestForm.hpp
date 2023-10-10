@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ShrubberyCreationForm.hpp                          :+:    :+:            */
+/*   RobotomyRequestForm.hpp                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tklouwer <tklouwer@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/09/28 10:58:31 by tklouwer      #+#    #+#                 */
-/*   Updated: 2023/10/03 14:17:48 by tklouwer      ########   odam.nl         */
+/*   Created: 2023/10/04 12:02:29 by tklouwer      #+#    #+#                 */
+/*   Updated: 2023/10/04 12:53:21 by tklouwer      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
 #include <iostream>
-#include <fstream>
 
 /* 
     The assignment operator is declared private because the class has constant 
@@ -23,16 +22,16 @@
     constructor is also declared private to prevent copying, making sure the 
     class's constant values don't change.
  */
-class ShrubberyCreationForm : public AForm {
+class RobotomyRequestForm : public AForm {
     private:
         const std::string   _target;
 
-        ShrubberyCreationForm& operator=( const ShrubberyCreationForm& other );
-        ShrubberyCreationForm( const ShrubberyCreationForm& other );
+        RobotomyRequestForm& operator=( const RobotomyRequestForm& other );
+        RobotomyRequestForm( const RobotomyRequestForm& other );
 
     public:
-        ShrubberyCreationForm( const std::string& target );
-        ~ShrubberyCreationForm();
+        RobotomyRequestForm( const std::string& target );
+        ~RobotomyRequestForm();
 
         void    execute ( const Bureaucrat& executor ) const;
 };

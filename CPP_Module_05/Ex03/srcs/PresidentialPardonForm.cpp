@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ShrubberyCreationForm.cpp                          :+:    :+:            */
+/*   PresidentialPardonForm.cpp                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tklouwer <tklouwer@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/09/28 11:05:47 by tklouwer      #+#    #+#                 */
-/*   Updated: 2023/10/03 14:21:54 by tklouwer      ########   odam.nl         */
+/*   Created: 2023/10/04 12:57:52 by tklouwer      #+#    #+#                 */
+/*   Updated: 2023/10/04 13:04:33 by tklouwer      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
 
 /*
-    Declaring the constructor for the ShrubberyCreation form which is derived from
+    Declaring the constructor for the PresidentialPardon form which is derived from
     the abstract class AForm. The member initialization list initializes the base
     class (AForm) and the _target member variable after the colon (":").
  */
-ShrubberyCreationForm::ShrubberyCreationForm( const std::string& target ) :
-    AForm("ShrubberyCreationForm", 145, 137), _target(target) {
+PresidentialPardonForm::PresidentialPardonForm( const std::string& target ) :
+    AForm("PresidentialPardonForm", 25, 5), _target(target) {
 }
 
 /* 
     Destructor.
  */
-ShrubberyCreationForm::~ShrubberyCreationForm() {
+PresidentialPardonForm::~PresidentialPardonForm() {
 }
 
 /* 
@@ -32,40 +32,24 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
     "AForm(other)" calls the copy constructor from the base class. 
     "_target(other._target)" copies the the _target of the derived class. 
  */
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) :
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) :
     AForm(other), _target(other._target) {
 }
 
 /* 
     Preventing assigment as the member variables are constants.
  */
-ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreationForm& other )
+PresidentialPardonForm& PresidentialPardonForm::operator=( const PresidentialPardonForm& other )
 {
     return *this;
 }
 
-void    ShrubberyCreationForm::execute( const Bureaucrat& executor ) const
+void    PresidentialPardonForm::execute( const Bureaucrat& executor ) const
 {
-    const char* tree[] = {
-        "   +   ",
-        "  / \\  ",
-        " *   * ",
-        "/ \\ / \\",
-        "1 2 3 4"
-    };
-
     if (this->getSigned() == false)
         throw AForm::FormNotSigned();
     else if (this->getExecGrade() < executor.getGrade())
         throw AForm::GradeTooLowException();
     else
-    {
-        std::ofstream outfile(this->getName() + "_shrubbery");
-        if (!outfile)
-            std::cerr << "Unable to write to outfile ..";
-        for (int i = 0; i < sizeof(tree) / sizeof(tree[0]); ++i) {
-            outfile << tree[i] << std::endl;
-        }
-        outfile.close();
-    }
+        std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

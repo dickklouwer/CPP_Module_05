@@ -1,8 +1,7 @@
 #= Variables =#
 
-NAME := Form
-
-SRCS :=  Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp
+NAME := Intern
+SRCS :=  Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp main.cpp
 SRCSDIR := srcs
 
 OBJDIR := obj
@@ -11,7 +10,7 @@ OBJ := $(addprefix $(OBJDIR)/,$(SRCS:.cpp=.o))
 
 CPP_FLAGS = -Wall -Werror -Wextra -std=c++98
 
-INCLUDES := includes/Bureaucrat.hpp includes/AForm.hpp includes/ShrubberyCreationForm.hpp includes/RobotomyRequestForm.hpp includes/PresidentialPardonForm.hpp
+INCLUDES := includes/Bureaucrat.hpp includes/AForm.hpp includes/ShrubberyCreationForm.hpp includes/RobotomyRequestForm.hpp includes/PresidentialPardonForm.hpp includes/Intern.hpp
 
 #= COLORS =#
 
@@ -24,7 +23,7 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJDIR) $(OBJ) $(INCLUDES)
-	@echo "$(GREEN)Building Form ...$(RESET)"
+	@echo "$(GREEN)Building Intern ...$(RESET)"
 	@g++ $(OBJ) -o $(NAME)
 
 $(OBJDIR)/%.o: $(addprefix $(SRCSDIR)/, %.cpp) $(INCLUDES)

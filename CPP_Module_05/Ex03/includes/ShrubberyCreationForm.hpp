@@ -6,7 +6,7 @@
 /*   By: tklouwer <tklouwer@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/28 10:58:31 by tklouwer      #+#    #+#                 */
-/*   Updated: 2023/10/03 14:17:48 by tklouwer      ########   odam.nl         */
+/*   Updated: 2023/10/10 09:39:21 by tklouwer      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <fstream>
 

@@ -6,7 +6,7 @@
 /*   By: tklouwer <tklouwer@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/26 10:24:48 by tklouwer      #+#    #+#                 */
-/*   Updated: 2023/10/04 13:07:44 by tklouwer      ########   odam.nl         */
+/*   Updated: 2023/10/10 09:44:14 by tklouwer      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int     main()
 {
     try
     {
-        Bureaucrat  bureaucrat("Dick", 1);
+        Bureaucrat  bureaucrat("Dick", 30);
         ShrubberyCreationForm scFrom("Shrubbery");
         RobotomyRequestForm rrForm("Robotomy");
         PresidentialPardonForm ppForm("PresidentialPardon");

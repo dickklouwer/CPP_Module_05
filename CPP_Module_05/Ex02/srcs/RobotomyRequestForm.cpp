@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ShrubberyCreationForm.cpp                          :+:    :+:            */
+/*   RobotomyRequestForm.cpp                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tklouwer <tklouwer@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/09/28 11:05:47 by tklouwer      #+#    #+#                 */
-/*   Updated: 2023/10/03 14:21:54 by tklouwer      ########   odam.nl         */
+/*   Created: 2023/10/04 12:01:56 by tklouwer      #+#    #+#                 */
+/*   Updated: 2023/10/04 12:50:50 by tklouwer      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
 
 /*
-    Declaring the constructor for the ShrubberyCreation form which is derived from
+    Declaring the constructor for the RobotomyRequestForm form which is derived from
     the abstract class AForm. The member initialization list initializes the base
     class (AForm) and the _target member variable after the colon (":").
  */
-ShrubberyCreationForm::ShrubberyCreationForm( const std::string& target ) :
-    AForm("ShrubberyCreationForm", 145, 137), _target(target) {
+RobotomyRequestForm::RobotomyRequestForm( const std::string& target ) :
+    AForm("RobotomyRequestForm", 72, 45), _target(target) {
 }
 
 /* 
     Destructor.
  */
-ShrubberyCreationForm::~ShrubberyCreationForm() {
+RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
 /* 
@@ -32,27 +32,21 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
     "AForm(other)" calls the copy constructor from the base class. 
     "_target(other._target)" copies the the _target of the derived class. 
  */
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) :
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) :
     AForm(other), _target(other._target) {
 }
 
 /* 
     Preventing assigment as the member variables are constants.
  */
-ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreationForm& other )
+RobotomyRequestForm& RobotomyRequestForm::operator=( const RobotomyRequestForm& other )
 {
     return *this;
 }
 
-void    ShrubberyCreationForm::execute( const Bureaucrat& executor ) const
+void    RobotomyRequestForm::execute( const Bureaucrat& executor ) const
 {
-    const char* tree[] = {
-        "   +   ",
-        "  / \\  ",
-        " *   * ",
-        "/ \\ / \\",
-        "1 2 3 4"
-    };
+    int i;
 
     if (this->getSigned() == false)
         throw AForm::FormNotSigned();
@@ -60,12 +54,10 @@ void    ShrubberyCreationForm::execute( const Bureaucrat& executor ) const
         throw AForm::GradeTooLowException();
     else
     {
-        std::ofstream outfile(this->getName() + "_shrubbery");
-        if (!outfile)
-            std::cerr << "Unable to write to outfile ..";
-        for (int i = 0; i < sizeof(tree) / sizeof(tree[0]); ++i) {
-            outfile << tree[i] << std::endl;
-        }
-        outfile.close();
+        std::cout << "DrrDrrrDrrrrrr.... ";
+        if (i % 2 == 0)
+            std::cout << this->_target << " is robotomized" << std::endl;
+        else
+            std::cout << "Robotomy has failed ... " << std::endl;
     }
 }

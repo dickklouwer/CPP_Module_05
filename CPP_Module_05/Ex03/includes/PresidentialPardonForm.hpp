@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ShrubberyCreationForm.hpp                          :+:    :+:            */
+/*   PresidentialPardonForm.hpp                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tklouwer <tklouwer@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/09/28 10:58:31 by tklouwer      #+#    #+#                 */
-/*   Updated: 2023/10/03 14:17:48 by tklouwer      ########   odam.nl         */
+/*   Created: 2023/10/04 12:58:17 by tklouwer      #+#    #+#                 */
+/*   Updated: 2023/10/04 12:58:49 by tklouwer      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
 #include <iostream>
@@ -23,16 +23,16 @@
     constructor is also declared private to prevent copying, making sure the 
     class's constant values don't change.
  */
-class ShrubberyCreationForm : public AForm {
+class PresidentialPardonForm : public AForm {
     private:
         const std::string   _target;
 
-        ShrubberyCreationForm& operator=( const ShrubberyCreationForm& other );
-        ShrubberyCreationForm( const ShrubberyCreationForm& other );
+        PresidentialPardonForm& operator=( const PresidentialPardonForm& other );
+        PresidentialPardonForm( const PresidentialPardonForm& other );
 
     public:
-        ShrubberyCreationForm( const std::string& target );
-        ~ShrubberyCreationForm();
+        PresidentialPardonForm( const std::string& target );
+        ~PresidentialPardonForm();
 
         void    execute ( const Bureaucrat& executor ) const;
 };
